@@ -1,4 +1,5 @@
-const express = require('express');
+const cors = require('cors');
+app.use(cors());const express = require('express');
 const bodyParser = require('body-parser');
 const Tesseract = require('tesseract.js');
 const { evaluate } = require('mathjs');
