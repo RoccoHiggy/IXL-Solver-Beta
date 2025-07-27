@@ -1,3 +1,7 @@
+.catch(err => {
+  console.error("Fetch error:", err);
+  document.getElementById("result").innerText = "Error: " + err.message;
+});
 document.getElementById('solveBtn').addEventListener('click', async () => {
   chrome.tabs.captureVisibleTab(null, { format: "png" }, function(dataUrl) {
     fetch("https://ixl-solver-beta-1.onrender.com/", {
