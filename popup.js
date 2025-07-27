@@ -1,6 +1,6 @@
 document.getElementById('solveBtn').addEventListener('click', async () => {
   chrome.tabs.captureVisibleTab(null, { format: "png" }, function(dataUrl) {
-    fetch("https://your-backend-url.onrender.com/solve", {
+    fetch("https://ixl-solver-beta-1.onrender.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
