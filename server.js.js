@@ -1,18 +1,19 @@
-const cors = require('cors');
-app.use(cors());const express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const Tesseract = require('tesseract.js');
 const { evaluate } = require('mathjs');
 
 const app = express();
+app.use(cors()); // ✅ Enable CORS for cross-origin requests
 app.use(bodyParser.json({ limit: '10mb' }));
 
-// Root route for Render browser check
+// Root route for Render check
 app.get('/', (req, res) => {
-  res.send('✅ Math Solver Backend is running!');
+  res.send('✅ Math Solver Backend with CORS is running!');
 });
 
-// Solve route for math OCR
+// Solve endpoint for OCR math problems
 app.post('/solve', async (req, res) => {
   const imageData = req.body.image.split(',')[1];
   const buffer = Buffer.from(imageData, 'base64');
@@ -34,6 +35,6 @@ app.post('/solve', async (req, res) => {
   }
 });
 
-// Use Render-provided port or fallback to 5000 locally
+// Use dynamic port for Render or fallback to 5000
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`✅ Server running on port ${port}`));
+app.listen(port, () => console.log(`✅ Server with CORS running on port ${port}`));
