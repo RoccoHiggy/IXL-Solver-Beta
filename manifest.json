@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Auto Math Screenshot Solver",
+  "name": "Math Screenshot Solver (ChatGPT)",
   "version": "1.0",
   "permissions": ["activeTab", "tabs"],
   "action": {

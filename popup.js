@@ -1,10 +1,6 @@
-.catch(err => {
-  console.error("Fetch error:", err);
-  document.getElementById("result").innerText = "Error: " + err.message;
-});
 document.getElementById('solveBtn').addEventListener('click', async () => {
   chrome.tabs.captureVisibleTab(null, { format: "png" }, function(dataUrl) {
-    fetch("https://ixl-solver-beta-1.onrender.com/", {
+    fetch("https://ixl-solver-beta-1.onrender.com/solve", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -13,7 +9,7 @@ document.getElementById('solveBtn').addEventListener('click', async () => {
     })
     .then(res => res.json())
     .then(data => {
-      document.getElementById("result").innerText = "Result: " + data.result;
+      document.getElementById("result").innerText = data.result;
     })
     .catch(err => {
       document.getElementById("result").innerText = "Error: " + err.message;
